@@ -1,0 +1,5 @@
+{
+  "name": "Autochem - AI Reaction Predictor",
+  "description": "An AI-powered web application that predicts chemical reaction outcomes, mechanisms, optimizations, and safety information for chemistry researchers.",
+  "requestFramePermissions": []
+}

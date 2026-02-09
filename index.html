@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autochem - AI Reaction Predictor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-green: #00ff94;
+            --dark-bg: #05120d;
+            --card-bg: #0a1f1a;
+            --border-color: rgba(0, 255, 148, 0.15);
+            --text-main: #f5f5f5;
+            --text-dim: #a7a7a7;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        :root.light {
+            --neon-green: #00a86b;
+            --dark-bg: #f3f5f4;
+            --card-bg: #ffffff;
+            --border-color: rgba(0, 168, 107, 0.2);
+            --text-main: #121a17;
+            --text-dim: #4a5568;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a3a2e;
+            border-radius: 10px;
+        }
+        .light ::-webkit-scrollbar-thumb {
+            background: #cbd5e0;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--neon-green);
+        }
+
+        /* Dashboard Glass Effect */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        /* Light Mode Overrides for hardcoded Tailwind classes */
+        .light .text-white { color: var(--text-main) !important; }
+        .light .text-[#f5f5f5] { color: var(--text-main) !important; }
+        .light .text-[#a7a7a7] { color: var(--text-dim) !important; }
+        .light .text-[#00ff94] { color: var(--neon-green) !important; }
+        .light .bg-[#05120d] { background-color: var(--dark-bg) !important; }
+        .light .bg-[#0a1f1a] { background-color: var(--card-bg) !important; }
+        .light .bg-[#1a3a2e] { background-color: var(--card-bg) !important; }
+        .light .bg-[#00ff94] { background-color: var(--neon-green) !important; }
+        .light .border-[#00ff94] { border-color: var(--neon-green) !important; }
+        .light .border-white\/10 { border-color: var(--border-color) !important; }
+        .light .border-white\/5 { border-color: var(--border-color) !important; }
+        .light .divide-white\/5 > * + * { border-color: var(--border-color) !important; }
+        .light .bg-white\/5 { background-color: rgba(0, 0, 0, 0.03) !important; }
+
+        /* Custom range slider styling */
+        input[type="range"] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            background: #1a3a2e;
+            border-radius: 2px;
+        }
+        .light input[type="range"]::-webkit-slider-runnable-track {
+            background: #e2e8f0;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: var(--neon-green);
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 0 10px rgba(0, 255, 148, 0.5);
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.39.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
